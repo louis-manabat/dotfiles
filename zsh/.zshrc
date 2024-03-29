@@ -43,14 +43,16 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # antidote plugin manager
 # Note: Possibly update this to remove compatibility-mode once 2.0 is live
 # https://github.com/mattmc3/antidote#notice
+source "$ZSHPLUGINS/antidote/antidote.zsh"
 zstyle ':antidote:compatibility-mode' 'antibody'
+antidote load "$ZDOTDIR/zsh_plugins.txt"
 
 # Applying p10k to zsh so customisation applies
 source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="$ZDOTDIR/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
 
