@@ -52,7 +52,7 @@ source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
 # Keep 1000 lines of history within the shell and save it to .zsh_history in zsh directory inside dotfiles
-HISTFILE="$ZDOTDIR/.zsh_history"
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
 
