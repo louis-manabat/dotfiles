@@ -51,7 +51,7 @@ antidote load "$ZDOTDIR/zsh_plugins.txt"
 source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 1000 lines of history within the shell and save it to .zsh_history in zsh directory inside dotfiles
 HISTFILE="$ZDOTDIR/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=1000
@@ -80,8 +80,10 @@ compinit
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 
-# fzf-tab init
-source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
+# fzf-tab init if installed
+if command -v fzf >/dev/null 2>&1; then
+  source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
+fi
 
 # zsh aliases
 source "$ZSHALIASES/aliases.zsh"

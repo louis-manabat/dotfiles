@@ -6,3 +6,6 @@ export ZSHPLUGINS="$ZDOTDIR/plugins"
 
 # Golang export
 export PATH="$PATH:/usr/local/go/bin"
+
+# Zoxide envs
+export PATH="$PATH:$HOME/.local/bin"

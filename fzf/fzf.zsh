@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/bin/fzf* ]]; then
-  PATH="${PATH:+${PATH}:}/usr/bin/fzf"
+if [[ ! "$PATH" == "$ZSHPLUGINS/fzf/bin" ]]; then
+  PATH="${PATH:+${PATH}:}$ZSHPLUGINS/fzf/bin"
 fi
 
 # Auto-completion
