@@ -9,3 +9,5 @@ export PATH="$PATH:/usr/local/go/bin"
 
 # Zoxide envs
 export PATH="$PATH:$HOME/.local/bin"
+
+. "$HOME/.cargo/env"
