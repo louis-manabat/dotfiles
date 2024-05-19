@@ -1,27 +1,13 @@
-(($+commands[nvim])) && {
-  alias v="nvim"
-} 
+if (( $+commands[nvim] )) alias v="nvim"
 
-(($+commands[git])) && {
-    alias g="git" 
-}
+if (( $+commands[git] )) alias g="git" 
 
-(($+commands[docker])) && {
-    alias d="docker" 
-}
+if (( $+commands[docker] )) alias d="docker" 
 
-(($+commands[docker-compose])) && {
-    alias dc="docker-compose"
-}
+if (( $+commands[docker-compose] )) alias dc="docker-compose"
 
-(($+commands[kubectl])) && {
-    alias k3s="kubectl"
-}
+if (( $+commands[kubectl] )) alias k3s="kubectl"
 
-(($+commands[terraform])) && {
-    alias tf="terraform" 
-}
+if (( $+commands[terraform] )) alias tf="terraform" 
 
-(($+commands[python3])) && { 
-    alias py3="python3"
-}
+if (( $+commands[python3] )) alias py3="python3"
