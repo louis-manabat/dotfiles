@@ -5,7 +5,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# History
+source "$ZDOTDIR/history.zsh"
+
+# Completation
 source "$ZDOTDIR/completion.zsh"
+
+typeset -A alias_descriptions
+
+# Sourcing all files in aliases directory as a function for constant repurpose
+source_aliases() {
+  for f in $ZSHALIASES/*; do
+    source $f
+  done
+}
+
+source_aliases
 
 # antidote plugin manager
 source "$ZSHPLUGINS/antidote/antidote.zsh"
@@ -14,11 +29,6 @@ antidote load "$ZDOTDIR/zsh_plugins.txt"
 # Applying p10k to zsh so customisation applies
 source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
-
-# Keep 1000 lines of history within the shell and save it to .zsh_history in zsh directory inside dotfiles
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=1000
-SAVEHIST=1000
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -30,17 +40,7 @@ zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 # Use modern completion system
 autoload -Uz compinit
 compinit
-
-###################################
-# End of lines added by compinstall
-###################################
-
-#-----------------------------------------------------------------------------
-
-########################
-# Start of custom config
-########################
-
+ 
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 
@@ -48,14 +48,6 @@ compinit
 if command -v fzf >/dev/null 2>&1; then
   source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 fi
-
-# zsh aliases
-source "$ZSHALIASES/aliases.zsh"
-
-# Sourcing the alias file to make the commands runnable
-for f in $ZSHALIASES/*; do
-  source $f
-done
 
 # Evaluate homebrew - Mac only
 if [ -d "/opt/homebrew/bin/brew" ]; then
@@ -69,11 +61,6 @@ fi
 # Zoxide init
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
-fi
-
-# kubectl autocompletion
-if command -v kubectl >/dev/null 2>&1; then
-  source "$XDG_CONFIG_HOME/k3s/zsh_completion"
 fi
 
 # Run the pokemon-colorscripts package if it exists
