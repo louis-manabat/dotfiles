@@ -18,3 +18,7 @@
 	path = zsh/plugins/antidote
 	url = https://github.com/mattmc3/antidote
 	branch = main
+[submodule "alacritty"]
+	path = zsh/plugins/alacritty
+	url = https://github.com/alacritty/alacritty
+	branch = master
