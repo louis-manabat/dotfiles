@@ -22,3 +22,7 @@
 	path = zsh/plugins/alacritty
 	url = https://github.com/alacritty/alacritty
 	branch = master
+[submodule "eza"]
+	path = zsh/plugins/eza
+	url = https://github.com/eza-community/eza.git
+	branch = main
