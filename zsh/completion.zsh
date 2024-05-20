@@ -35,8 +35,12 @@ if command -v kubectl >/dev/null 2>&1; then
   source "$XDG_CONFIG_HOME/k3s/zsh_completion"
 fi
 
-# alacritty compeltation
+# # alacritty completion
+# if command -v alacritty >/dev/null 2>&1; then
+#   source "$ZSHPLUGINS/alacritty/extra/completions/_alacritty"
+# fi
 
-if command -v alacritty >/dev/null 2>&1; then
-  source "$ZSHPLUGINS/alacritty/extra/completions/_alacritty"
+# eza completion
+if command -v eza >/dev/null 2>&1; then
+  export FPATH="$ZSHPLUGINS/eza/completions/zsh:$FPATH"
 fi
