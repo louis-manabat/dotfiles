@@ -11,3 +11,7 @@ if (( $+commands[kubectl] )) alias k3s="kubectl"
 if (( $+commands[terraform] )) alias tf="terraform" 
 
 if (( $+commands[python3] )) alias py3="python3"
+
+if (( $+commands[batcat] )) alias cat="batcat"
+
+if (( $+commands[eza] )) alias ls="eza"
