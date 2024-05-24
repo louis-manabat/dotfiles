@@ -14,4 +14,6 @@ if (( $+commands[python3] )) alias py3="python3"
 
 if (( $+commands[batcat] )) alias cat="batcat"
 
+if (( $+commands[bat] )) alias cat="bat"
+
 if (( $+commands[eza] )) alias ls="eza"
