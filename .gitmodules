@@ -22,3 +22,7 @@
 	path = zsh/plugins/eza
 	url = https://github.com/eza-community/eza.git
 	branch = main
+[submodule "oh-my-posh"]
+	path = zsh/plugins/oh-my-posh
+	url = https://github.com/JanDeDobbeleer/oh-my-posh
+	branch = main

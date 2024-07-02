@@ -36,8 +36,11 @@ source "$ZSHPLUGINS/antidote/antidote.zsh"
 antidote load "$ZDOTDIR/zsh_plugins.txt"
 
 # Applying p10k to zsh so customisation applies
-source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
+# source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
+# [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
+
+eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
+
  
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
