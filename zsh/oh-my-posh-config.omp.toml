@@ -50,23 +50,30 @@ newline = true
 type = "prompt"
 alignment = "right"
 
-  [[block.segments]]
+  [[blocks.segments]]
   type = "terraform"
   style = "plain"
   template = "Terraform {{ .Version }}"
 
-    [block.segments.properties]
+    [blocks.segments.properties]
     fetch_version = true
 
-  [[block.segments]]
+  [[blocks.segments]]
+  type = "status"
+  style = "plain"
+  template = "{{ if eq .Code 0 }}\uf00c{{ else }}\uf071{{ end }} "
+
+    [blocks.segments.properties]
+    always_enabled = true
+
+  [[blocks.segments]]
   type = "executiontime"
   style = "plain"
   template = " {{ .FormattedMs }} "
 
-    [block.segments.properties]
+    [blocks.segments.properties]
     threshold = 1
-    style = "roundrock"
-    always_enabled = true
+    style = "austin"
 
   [[blocks.segments]]
   type = "time"
