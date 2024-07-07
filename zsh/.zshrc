@@ -35,21 +35,21 @@ source_aliases
 source "$ZSHPLUGINS/antidote/antidote.zsh"
 antidote load "$ZDOTDIR/zsh_plugins.txt"
 
+# Evaluate homebrew - Mac only
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Applying p10k to zsh so customisation applies
 # source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 # [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
+# Applying oh my posh configs
 eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
-
  
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 
 # fzf-tab init if installed
 if (( $+commands[fzf] )) source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
-
-# Evaluate homebrew - Mac only
-[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Zoxide init
 if (( $+commands[zoxide] )) eval "$(zoxide init zsh)"
