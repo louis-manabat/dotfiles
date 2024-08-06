@@ -59,6 +59,11 @@ alignment = "right"
     fetch_version = true
 
   [[blocks.segments]]
+  type = "az"
+  style = "powerline"
+  template = " {{ if .UserName }}  {{ .Name }} {{ end }}"
+
+  [[blocks.segments]]
   type = "status"
   style = "plain"
   template = "{{ if eq .Code 0 }}\uf00c{{ else }}\uf071{{ end }} "
