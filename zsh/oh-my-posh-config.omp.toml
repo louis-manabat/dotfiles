@@ -26,7 +26,7 @@ newline = true
   leading_diamond = ""
   trailing_diamond = ""
   background = "#1e88e5"
-  template = "{{ .UserName }}"
+  template = "{{ .UserName }}@{{ .HostName }}"
 
   [[blocks.segments]]
   type = "path"

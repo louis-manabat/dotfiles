@@ -15,3 +15,9 @@ export PATH="$PATH:$HOME/.bin"
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+# NVM export
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ];
+  . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
