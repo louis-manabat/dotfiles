@@ -1,101 +1,121 @@
-"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-console_title_template = "{{.Folder}} | {{.Shell}} ~ {{.ShellVersion}}"
+console_title_template = '{{.Folder}} | {{.Shell}} ~ {{.ShellVersion}}'
+version = 3
 final_space = true
-version = 2
 
 [[blocks]]
-alignment = "left"
-type = "prompt"
-newline = true
-  
-  [[blocks.segments]]
-  type = "text"
-  style = "plain"
-  foreground = "white"
-  template = "╭─ "
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
 
   [[blocks.segments]]
-  type = "text"
-  style = "plain"
-  foreground = "#d50000"
-  template = "◓ "
-
-  [[blocks.segments]]
-  type = "session"
-  style = "diamond"
-  leading_diamond = ""
-  trailing_diamond = ""
-  background = "#1e88e5"
-  template = "{{ .UserName }}@{{ .HostName }}"
-
-  [[blocks.segments]]
-  type = "path"
-  style = "powerline"
-  background = "#ab47bc"
-  powerline_symbol = ""
+    template = '╭─ '
+    foreground = 'white'
+    type = 'text'
+    style = 'plain'
 
     [blocks.segments.properties]
-    style = "unique"
+      cache_duration = 'none'
 
   [[blocks.segments]]
-  type = "git"
-  style = "plain"
-  foreground = "green"
-  template = " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
+    template = '◓ '
+    foreground = '#d50000'
+    type = 'text'
+    style = 'plain'
 
     [blocks.segments.properties]
-    fetch_status = true
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '{{ .UserName }}@{{ .HostName }}'
+    background = '#1e88e5'
+    type = 'session'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    powerline_symbol = ''
+    background = '#ab47bc'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'unique'
+
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}'
+    foreground = 'green'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      fetch_status = true
 
 [[blocks]]
-type = "prompt"
-alignment = "right"
+  type = 'prompt'
+  alignment = 'right'
 
   [[blocks.segments]]
-  type = "terraform"
-  style = "plain"
-  template = "Terraform {{ .Version }}"
+    template = 'Terraform {{ .Version }}'
+    type = 'terraform'
+    style = 'plain'
 
     [blocks.segments.properties]
-    fetch_version = true
+      cache_duration = 'none'
+      fetch_version = true
 
   [[blocks.segments]]
-  type = "az"
-  style = "powerline"
-  template = " {{ if .UserName }}  {{ .Name }} {{ end }}"
-
-  [[blocks.segments]]
-  type = "status"
-  style = "plain"
-  template = "{{ if eq .Code 0 }}\uf00c{{ else }}\uf071{{ end }} "
+    template = ' {{ if .UserName }}  {{ .Name }} {{ end }}'
+    type = 'az'
+    style = 'powerline'
 
     [blocks.segments.properties]
-    always_enabled = true
+      cache_duration = 'none'
 
   [[blocks.segments]]
-  type = "executiontime"
-  style = "plain"
-  template = " {{ .FormattedMs }} "
+    template = '{{ if eq .Code 0 }}{{ else }}{{ end }} '
+    type = 'status'
+    style = 'plain'
 
     [blocks.segments.properties]
-    threshold = 1
-    style = "austin"
+      always_enabled = true
+      cache_duration = 'none'
 
   [[blocks.segments]]
-  type = "time"
-  style = "plain"
-  foreground = "#007ACC"
-  template = " {{ .CurrentDate | date .Format }} "
+    template = ' {{ .FormattedMs }} '
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
-    time_format = "15:04:05"
+      cache_duration = 'none'
+      style = 'austin'
+      threshold = 1
+
+  [[blocks.segments]]
+    template = ' {{ .CurrentDate | date .Format }} '
+    foreground = '#007ACC'
+    type = 'time'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      time_format = '15:04:05'
 
 [[blocks]]
-type = "prompt"
-alignment = "left"
-newline = true
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
 
   [[blocks.segments]]
-  type = "text"
-  style = "plain"
-  foreground = "white"
-  template = "╰─❯"
+    template = '╰─❯'
+    foreground = 'white'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'

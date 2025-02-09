@@ -22,5 +22,5 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-submodules/
+\.submodules
 package-setup.sh
