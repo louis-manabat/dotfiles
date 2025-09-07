@@ -53,19 +53,13 @@
           }
         },
         {
-          "template": " {{ .HEAD }} |{{if .LatestTag }} Latest Tag: {{ .LatestTag }}{{end}} |{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}",
+          "template": " {{ .HEAD }}{{if .LatestTag }} | Latest Tag: {{ .LatestTag }} |{{end}}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}",
           "foreground": "green",
           "type": "git",
           "style": "plain",
           "properties": {
             "cache_duration": "none",
-            "fetch_status": true,
-            "mapped_branches": {
-              "feature/*": "🚀 ",
-              "bugfix/*": "🐛 ",
-              "fix/*": "🔧 ",
-              "docs/*": "📗 "
-            }
+            "fetch_status": true
           }
         }
       ]
