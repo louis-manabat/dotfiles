@@ -1,0 +1,142 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "upgrade": {
+    "source": "cdn",
+    "auto": false,
+    "notice": true
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "template": "╭─ ",
+          "foreground": "#ffffff",
+          "type": "text",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none"
+          }
+        },
+        {
+          "template": "◓ ",
+          "foreground": "#d50000",
+          "type": "text",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none"
+          }
+        },
+        {
+          "template": "{{ .UserName }}@{{ .HostName }}",
+          "background": "#1e88e5",
+          "type": "session",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "cache_duration": "none"
+          }
+        },
+        {
+          "powerline_symbol": "",
+          "background": "#ab47bc",
+          "type": "path",
+          "style": "powerline",
+          "properties": {
+            "cache_duration": "none",
+            "style": "unique"
+          }
+        },
+        {
+          "template": " {{ .HEAD }} |{{if .LatestTag }} Latest Tag: {{ .LatestTag }}{{end}} |{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}",
+          "foreground": "green",
+          "type": "git",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "fetch_status": true,
+            "mapped_branches": {
+              "feature/*": "🚀 ",
+              "bugfix/*": "🐛 ",
+              "fix/*": "🔧 ",
+              "docs/*": "📗 "
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "template": "Terraform {{ .Version }}",
+          "type": "terraform",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "fetch_status": true
+          }
+        },
+        {
+          "template": " {{ if .User.Name }}  {{ .User.Type }}/{{ .Name }} {{ end }}",
+          "type": "az",
+          "style": "powerline",
+          "properties": {
+            "cache_duration": "none"
+          }
+        },
+        {
+          "template": "{{ if eq .Code 0 }}{{ else }}{{ end }} ",
+          "type": "status",
+          "style": "plain",
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          }
+        },
+        {
+          "template": " {{ .FormattedMs }} ",
+          "type": "executiontime",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "style": "austin",
+            "threshold": 1
+          }
+        },
+        {
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "foreground": "#007ACC",
+          "type": "time",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "15:04:05"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "template": "╰─❯",
+          "foreground": "#ffffff",
+          "type": "text",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none"
+          }
+        }
+      ]
+    }
+  ]
+}

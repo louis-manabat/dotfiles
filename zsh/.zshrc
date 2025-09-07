@@ -25,8 +25,12 @@ source "$ZDOTDIR/completion.zsh"
 # Sourcing all files in aliases directory as a function for constant repurpose
 source_aliases() {
   for f in $ZSHALIASES/*; do
-    source $f
+    if [ -f $f ]; then
+      source $f
+    fi
   done
+  
+  source "$ZSHALIASES/localised_aliases/local_source.sh"
 }
 
 source_aliases
@@ -43,7 +47,8 @@ antidote load "$ZDOTDIR/zsh_plugins.txt"
 # [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
 # Applying oh my posh configs
-eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
+# eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
+eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.json)"
  
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"

@@ -3,3 +3,7 @@
 *zsh_plugins.zsh
 *.zsh_history
 */.zsh_sessions
+
+# Local Aliases Folder but keeping local_source.sh due to it being a required script
+*zsh/aliases/localised_aliases/*
+!*zsh/aliases/localised_aliases/local_source.sh

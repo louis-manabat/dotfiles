@@ -1,6 +1,6 @@
 console_title_template = '{{.Folder}} | {{.Shell}} ~ {{.ShellVersion}}'
 version = 3
-final_space = true
+final_space = false
 
 [[blocks]]
   type = 'prompt'
