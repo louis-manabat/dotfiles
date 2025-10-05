@@ -26,3 +26,7 @@
 	path = zsh/plugins/oh-my-posh
 	url = https://github.com/JanDeDobbeleer/oh-my-posh
 	branch = main
+[submodule "tfenv"]
+	path = zsh/plugins/tfenv
+	url = https://github.com/tfutils/tfenv.git
+	branch = master

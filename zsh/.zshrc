@@ -42,11 +42,7 @@ antidote load "$ZDOTDIR/zsh_plugins.txt"
 # Evaluate homebrew - Mac only
 [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Applying p10k to zsh so customisation applies
-# source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
-# [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
-
-# Applying oh my posh configs
+# Applying oh my posh configs - lost likely switching to json-based configuration
 # eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
 eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.json)"
  
@@ -58,6 +54,9 @@ if (( $+commands[fzf] )) source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
 # Zoxide init
 if (( $+commands[zoxide] )) eval "$(zoxide init zsh)"
+
+# Exporting tfenv into $PATH - submodule will look after download
+[ -d "$ZSHPLUGINS/tfenv" ] && export PATH="$ZSHPLUGINS/tfenv/bin:$PATH"
 
 #------------------------------------------------------
 # Conditional inits start - package needs to be install

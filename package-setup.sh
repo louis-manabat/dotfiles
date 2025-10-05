@@ -4,3 +4,5 @@ cd zsh/plugins/fzf
 
 # Install zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
+## TODO install eza
