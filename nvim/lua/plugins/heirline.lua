@@ -1,23 +1,15 @@
-local _plugin = {
-    "rebelot/heirline.nvim",
-    lazy = false
-};
+return {
+  "rebelot/heirline.nvim",
+  lazy = false,
 
-_plugin.config = function()
-    require("heirline").setup({
-        statusline = {
+  opts = {
+    statusline = {},
+    winbar = {},
+    tabline = {},
+    statuscolumn = {},
+  },
 
-        },
-        winbar = {
-
-        },
-        tabline = {
-
-        },
-        statuscolumn = {
-
-        }
-    });
-end;
-
-return _plugin;
+  config = function(_, opts)
+    require("heirline").setup(opts)
+  end,
+}

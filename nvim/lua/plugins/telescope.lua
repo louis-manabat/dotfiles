@@ -1,16 +1,27 @@
-local _plugin = {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.2",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-fzf-native.nvim"
+return {
+  "nvim-telescope/telescope.nvim",
+  tag = "0.1.2",
+
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      cond = function()
+        return vim.fn.executable("make") == 1
+      end,
     },
-    lazy = false,
-    enabled = true
-};
+  },
 
-_plugin.config = function()
-    require("telescope").setup({});
-end;
+  lazy = false,
 
-return _plugin;
+  opts = {},
+
+  config = function(_, opts)
+    local telescope = require("telescope")
+    telescope.setup(opts)
+
+    -- Load fzf extension safely
+    pcall(telescope.load_extension, "fzf")
+  end,
+}

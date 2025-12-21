@@ -1,15 +1,13 @@
-local _plugin = { 
+return {
     "glepnir/dashboard-nvim",
-    event = 'VimEnter',
-    dependencies = { 
+    event = "VimEnter",
+    dependencies = {
         "nvim-tree/nvim-web-devicons"
-    };
-};
-
-_plugin.config = function()
-    require("dashboard").setup({
+    },
+    opts = {
         theme = "hyper"
-    });
-end;
-
-return _plugin;
+    },
+    config = function(_, opts)
+        require("dashboard").setup(opts)
+    end,
+}
