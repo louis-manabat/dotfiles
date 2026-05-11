@@ -42,7 +42,7 @@ antidote load "$ZDOTDIR/zsh_plugins.txt"
 # Evaluate homebrew - Mac only
 [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Applying oh my posh configs - lost likely switching to json-based configuration
+# Applying oh my posh configs - most likely switching to json-based configuration
 # eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
 eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.json)"
  
