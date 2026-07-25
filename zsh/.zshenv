@@ -4,6 +4,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSHALIASES="$ZDOTDIR/aliases"
 export ZSHPLUGINS="$ZDOTDIR/plugins"
 
+# Bat export
+export BAT_CONFIG_DIR="$HOME/batconfigs"
+
 # Golang export
 export PATH="$PATH:/usr/local/go/bin"
 
@@ -18,6 +21,3 @@ fi
 
 # NVM export
 export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  . "$NVM_DIR/nvm.sh"  # This loads nvm
-fi

@@ -77,3 +77,9 @@ if command -v pokemon-colorscripts >/dev/null 2>&1; then
     pokemon-colorscripts -r $shiny_arg
   fi
 fi
+
+# NVM loading
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"  # This loads nvm
+  . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
