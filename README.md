@@ -9,6 +9,8 @@ CLI Utilities:
 - fzf
 - fzf-tab
 - zoxide - smarter cd command
+- eza - modern alternative to **ls**
+- tfenv - a Terraform version manager
 
 Extras:
 

@@ -1,2 +1,4 @@
--- Intialising lazy file
-require('config.lazy')
+-- Install 'mini.nvim'
+vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+
+require('mini.basics').setup({})

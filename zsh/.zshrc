@@ -25,8 +25,12 @@ source "$ZDOTDIR/completion.zsh"
 # Sourcing all files in aliases directory as a function for constant repurpose
 source_aliases() {
   for f in $ZSHALIASES/*; do
-    source $f
+    if [ -f $f ]; then
+      source $f
+    fi
   done
+  
+  source "$ZSHALIASES/localised_aliases/local_source.sh"
 }
 
 source_aliases
@@ -35,9 +39,12 @@ source_aliases
 source "$ZSHPLUGINS/antidote/antidote.zsh"
 antidote load "$ZDOTDIR/zsh_plugins.txt"
 
-# Applying p10k to zsh so customisation applies
-source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
+# Evaluate homebrew - Mac only
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Applying oh my posh configs - most likely switching to json-based configuration
+# eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.toml)"
+eval "$(oh-my-posh init zsh --config $ZDOTDIR/oh-my-posh-config.omp.json)"
  
 # Source fzf
 [ -f "$XDG_CONFIG_HOME/fzf/fzf.zsh" ] && source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
@@ -45,11 +52,11 @@ source "$ZSHPLUGINS/powerlevel10k/powerlevel10k.zsh-theme"
 # fzf-tab init if installed
 if (( $+commands[fzf] )) source "$ZSHPLUGINS/fzf-tab/fzf-tab.plugin.zsh"
 
-# Evaluate homebrew - Mac only
-[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Zoxide init
 if (( $+commands[zoxide] )) eval "$(zoxide init zsh)"
+
+# Exporting tfenv into $PATH - submodule will look after download
+[ -d "$ZSHPLUGINS/tfenv" ] && export PATH="$ZSHPLUGINS/tfenv/bin:$PATH"
 
 #------------------------------------------------------
 # Conditional inits start - package needs to be install
@@ -69,4 +76,10 @@ if command -v pokemon-colorscripts >/dev/null 2>&1; then
   else
     pokemon-colorscripts -r $shiny_arg
   fi
+fi
+
+# NVM loading
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"  # This loads nvm
+  . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi

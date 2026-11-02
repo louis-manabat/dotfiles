@@ -1,0 +1,121 @@
+console_title_template = '{{.Folder}} | {{.Shell}} ~ {{.ShellVersion}}'
+version = 3
+final_space = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '╭─ '
+    foreground = 'white'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '◓ '
+    foreground = '#d50000'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '{{ .UserName }}@{{ .HostName }}'
+    background = '#1e88e5'
+    type = 'session'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    powerline_symbol = ''
+    background = '#ab47bc'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'unique'
+
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}'
+    foreground = 'green'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    template = 'Terraform {{ .Version }}'
+    type = 'terraform'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      fetch_version = true
+
+  [[blocks.segments]]
+    template = ' {{ if .UserName }}  {{ .Name }} {{ end }}'
+    type = 'az'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '{{ if eq .Code 0 }}{{ else }}{{ end }} '
+    type = 'status'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      always_enabled = true
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = ' {{ .FormattedMs }} '
+    type = 'executiontime'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'austin'
+      threshold = 1
+
+  [[blocks.segments]]
+    template = ' {{ .CurrentDate | date .Format }} '
+    foreground = '#007ACC'
+    type = 'time'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      time_format = '15:04:05'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '╰─❯'
+    foreground = 'white'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'

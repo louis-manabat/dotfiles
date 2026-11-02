@@ -11,9 +11,9 @@ CVS
 _darcs
 \.hg
 
-\.git
-\.gitignore
-\.gitmodules
+^/\.git$
+^/\.gitignore$
+^/\.gitmodules$
 
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
@@ -22,5 +22,5 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-submodules/
-package-setup.sh
+\.submodules
+^/\package-setup\.sh$
