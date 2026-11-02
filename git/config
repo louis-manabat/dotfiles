@@ -23,3 +23,7 @@
     usa = restore --staged .
 [credential]
 	helper = store
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
