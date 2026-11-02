@@ -24,7 +24,7 @@ To ensure ease of installation, run the following command to also include instal
 
 ```sh
 # One command initialisation
-git clone https://github.com/louis-manabat/dotfiles.git --resursive-submodules
+git clone https://github.com/louis-manabat/dotfiles.git --recurse-submodules
 
 # Multi-line utilisation
 git clone https://github.com/louis-manabat/dotfiles.git
